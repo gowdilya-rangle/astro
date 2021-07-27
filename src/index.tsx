@@ -3,10 +3,61 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  ApolloLink,
+  gql
+} from "@apollo/client";
+
+
+
+const currencyClient = new ApolloClient({
+  uri: 'https://48p1r2roz4.sse.codesandbox.io',
+  cache: new InMemoryCache()
+});
+
+const spaceXClient = new ApolloClient({
+  uri: 'https://api.spacex.land/graphql',
+  cache: new InMemoryCache()
+});
+
+
+
+
+
+// client
+//   .query({
+//     query: gql`
+//       query GetRates {
+//         rates(currency: "USD") {
+//           currency
+//         }
+//       }
+//     `
+//   })
+//   .then(result => console.log(result));
+
+spaceXClient
+  .query({
+    query: gql`
+      {
+  rockets(limit: 10) {
+    id
+  }
+}
+     `
+  })
+  .then(result => console.log(result));
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={spaceXClient}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

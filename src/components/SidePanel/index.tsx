@@ -29,6 +29,7 @@ import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import CropFreeIcon from '@material-ui/icons/CropFree';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import { Theme } from '@material-ui/core/styles/createTheme';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 
 
 //import './sidepanel.scss';
@@ -159,12 +160,19 @@ return(
             </ListItem>
           </Link>
 
-          {/* <Link to="/resume">
-            <ListItem button key={"Resume"} selected={location.pathname === "/resume"}>
-              <ListItemIcon><DescriptionIcon></DescriptionIcon></ListItemIcon>
-              <ListItemText primary={"Resume"} />
+          <Link to="/dashboard">
+            <ListItem button key={"Dashboard"} selected={location.pathname === "/dashboard"}>
+              <ListItemIcon><AccountTreeIcon></AccountTreeIcon></ListItemIcon>
+              <ListItemText primary={"Dashboard"} />
             </ListItem>
-          </Link> */}
+          </Link>
+
+          <Link to="/currency">
+            <ListItem button key={"Currency"} selected={location.pathname === "/currency"}>
+              <ListItemIcon><MonetizationOnIcon></MonetizationOnIcon></ListItemIcon>
+              <ListItemText primary={"Currency"} />
+            </ListItem>
+          </Link>
          
 
       </List>
