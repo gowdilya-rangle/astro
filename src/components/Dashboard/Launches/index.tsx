@@ -1,10 +1,26 @@
-import React , { useState }from "react";
+import React , { useState, useEffect }from "react";
 import { useQuery, gql } from "@apollo/client";
-import RGL, { WidthProvider } from "react-grid-layout";
-import styled from "styled-components";
+import styled,{css} from "styled-components";
 
 
 
+
+const Pheading = styled("p")<{active:boolean}>`
+font-size: 11.2px;
+font-weight: 700;
+width: 100%;
+height: 16px;
+line-height: 16.8px;
+margin-top: 4px;
+text-transform: uppercase;
+background-color: ${props => props.active ? "#ba1e68;" :"#0c164f;"}
+&:hover{
+  background-color:#5643fd;
+
+}
+
+`;
+//#5643fd
 
 const GET_LAUNCHES = gql`
   {
@@ -18,6 +34,7 @@ const GET_LAUNCHES = gql`
 
 interface ILaunches {
   launches: ILaunchObject[];
+
 }
 
 interface ILaunchObject {
@@ -26,11 +43,23 @@ interface ILaunchObject {
   mission_id: string[];
 }
 
-export default function Launches() {
+interface ILaunchesProps{
+  selectLaunch:(launchObject:ILaunchObject)=>void;
+  selectedLaunch:(ILaunchObject|null);
+}
+
+export default function Launches(props:ILaunchesProps) {
 
 
 
   const { loading, error, data } = useQuery<ILaunches>(GET_LAUNCHES);
+
+  useEffect(()=>{
+    if (data && data.launches.length > 0){
+      props.selectLaunch(data.launches[0]);
+    }
+
+  },[data])
 
 
 
@@ -43,20 +72,18 @@ export default function Launches() {
 
   return (
     <div>
-      
       {data
-        ? data.launches.map((launchObject: ILaunchObject) => {
+        ? data.launches.map((launchObject:ILaunchObject, index) => {
             console.log(launchObject);
+            console.log(props.selectedLaunch);
             return(
-            <div>
-                <div>{launchObject.id}</div>
-                <div>{launchObject.mission_name}</div>
+            <div onClick={()=>{props.selectLaunch(launchObject)}} key={launchObject.id + index} >
+                <Pheading active={props.selectedLaunch && props.selectedLaunch.id === launchObject.id?true:false} >{launchObject.mission_name}</Pheading>
                 
             </div>)
             
           })
         : null}
-     
     </div>
   );
 }
