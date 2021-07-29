@@ -72,8 +72,8 @@ export default function Dashboard() {
 
   const layoutLG = [
     { i: "a", x: 0, y: 0, w: 3, h: 11 , maxH:11, minW:3, resizeHandles:[]},
-    { i: "b", x: 3, y: 0, w: 8, h: 18},
-    { i: "c", x: 6, y: 0, w: 3, h: 5},
+    { i: "b", x: 3, y: 0, w: 5, h: 12},
+    { i: "c", x: 0, y: 0, w: 3, h: 5},
   ];
 
   //const [gridLayout, setGridLayout] = useState(layout);
