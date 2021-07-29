@@ -1,17 +1,14 @@
-
+import { Responsive, WidthProvider } from 'react-grid-layout';
 import "../../../node_modules/react-grid-layout/css/styles.css";
 import '../../../node_modules/react-resizable/css/styles.css';
-import React, {useState} from "react";
-import RGL, { WidthProvider } from "react-grid-layout";
+import {useState} from "react";
 import Launches from './Launches/';
 import YoutubeEmbed from  './Video/index';
+import styled from "styled-components";
 
-
- import styled from "styled-components";
-import { useEffect } from "react";
+const ResponsiveGridLayout = WidthProvider(Responsive);
 
  const GridElementDiv= styled.div`
-  
   color: #fff;
   background-color: #3f51b5;
   font-size: 0.875rem;
@@ -21,6 +18,24 @@ import { useEffect } from "react";
   letter-spacing: 0.01071e
 `;
 
+
+const StyledGrid = styled.div`
+background: #b71c1c;
+overflow: auto;
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  background-position: bottom right;
+  padding: 0 3px 3px 0;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  box-sizing: border-box;
+  cursor: se-resize;
+}
+`;
 
 
 const ScrollDiv = styled.div`
@@ -40,7 +55,7 @@ interface ILaunchObject {
   mission_id: string[];
 }
 
-const ReactGridLayout = WidthProvider(RGL);
+
 
 export default function Dashboard() {
 
@@ -56,8 +71,8 @@ export default function Dashboard() {
 
 
   const layoutLG = [
-    { i: "a", x: 0, y: 0, w: 5, h: 11 , maxH:11, minW:5, resizeHandles:[]},
-    { i: "b", x: 3, y: 0, w: 8, h: 13},
+    { i: "a", x: 0, y: 0, w: 3, h: 11 , maxH:11, minW:3, resizeHandles:[]},
+    { i: "b", x: 3, y: 0, w: 8, h: 18},
     { i: "c", x: 6, y: 0, w: 3, h: 5},
   ];
 
@@ -68,7 +83,6 @@ export default function Dashboard() {
     className: "layout",
     items: 20,
     rowHeight: 30,
-    cols: 12,
     transformScale: 1,
   };
 
@@ -81,8 +95,8 @@ export default function Dashboard() {
 
     return (
       // <div style={{transform: 'scale(0.5) translate(-50%, -50%)'}}>
-        <ReactGridLayout
-          layout={layoutLG}
+        <ResponsiveGridLayout
+          layouts={{lg:layoutLG}}
           //onLayoutChange={onLayoutChange}
           {...gridProps}
           resizeHandles={["se", "ne", "nw", "sw"]}
@@ -94,11 +108,11 @@ export default function Dashboard() {
             <Launches selectLaunch={handleSetLaunch} selectedLaunch={launch}></Launches>
             </ScrollDiv>
           </GridElementDiv>
-          <GridElementDiv key="b">
+          <StyledGrid key="b">
             <YoutubeEmbed/>
-          </GridElementDiv>
+          </StyledGrid>
           <GridElementDiv key="c"><span>c</span></GridElementDiv>
-        </ReactGridLayout>
+        </ResponsiveGridLayout>
       // </div>
     );
   
