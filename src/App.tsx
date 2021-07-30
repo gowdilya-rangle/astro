@@ -20,22 +20,22 @@ import Currency from './components/Currency';
 function App() {
   return (
     <Router basename="/">
-    <div className="App">
-    <SidePanel>
-        <div className="App-main">
-            <Switch>
-              <Route exact path="/"  component={Home} />
-              <Route path="/dashboard" component={Dashboard} />
-              {/* <Route path="/currency" component={Currency} /> */}
-              {/* <Route path="/resume" component={Resume} />
-              <Route path="/csv-viewer" component={CSVViewer} />
-              <Route path="/csv-grapher" component={CSVGrapher} />
-              <Route path="/tracking&traceability" component={Tnt} /> */}
-              <Redirect to="/" />
-            </Switch>
-          </div>
-    </SidePanel>
-    </div>
+
+      <SidePanel>
+          {/* <div className="App-main"> */}
+              <Switch>
+                <Route exact path="/"  component={Home} />
+                <Route path="/dashboard" component={Dashboard} />
+                {/* <Route path="/currency" component={Currency} /> */}
+                {/* <Route path="/resume" component={Resume} />
+                <Route path="/csv-viewer" component={CSVViewer} />
+                <Route path="/csv-grapher" component={CSVGrapher} />
+                <Route path="/tracking&traceability" component={Tnt} /> */}
+                <Redirect to="/" />
+              </Switch>
+            {/* </div> */}
+      </SidePanel>
+
 
 
     </Router>

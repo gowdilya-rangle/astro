@@ -22,6 +22,7 @@ import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import { Theme } from "@material-ui/core/styles/createTheme";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import styled from "styled-components";
+import space from './../../images/space.png';
 
 
 const SidePanelDiv = styled.div`
@@ -35,6 +36,18 @@ const SidePanelDiv = styled.div`
     color: rgba(0, 0, 0, 0.87);
   }
 `;
+
+const StyledMain = styled.main`
+
+    background-image: url(${space});
+
+
+    height: 100%; 
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+`
 
 const drawerWidth = 240;
 
@@ -132,8 +145,8 @@ export default function SidePanel({ children }: Props) {
             >
               <MenuIcon className="menu-button" />
             </IconButton>
-            <Typography variant="h6" noWrap>
-              Astro
+            <Typography variant="h4" noWrap>
+              Astro - SpaceX Rocket Launch Dashboard
             </Typography>
           </Toolbar>
         </AppBar>
@@ -200,14 +213,14 @@ export default function SidePanel({ children }: Props) {
 
           <Divider />
         </Drawer>
-        <main
+        <StyledMain
           className={clsx(classes.content, {
             [classes.contentShift]: open,
           })}
         >
           <div className={classes.drawerHeader} />
           <div>{children}</div>
-        </main>
+        </StyledMain>
       </div>
     </SidePanelDiv>
   );
