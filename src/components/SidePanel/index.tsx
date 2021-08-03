@@ -45,8 +45,18 @@ const StyledMain = styled.main`
     height: 100%; 
 
     background-position: center;
-    background-repeat: no-repeat;
+
     background-size: cover;
+    z-index: 3;
+    background-position: top;
+
+`
+
+
+const Container = styled.div`
+
+min-height:100%;
+
 `
 
 const drawerWidth = 240;
@@ -218,8 +228,11 @@ export default function SidePanel({ children }: Props) {
             [classes.contentShift]: open,
           })}
         >
+          <Container>
+
           <div className={classes.drawerHeader} />
           <div>{children}</div>
+          </Container>
         </StyledMain>
       </div>
     </SidePanelDiv>

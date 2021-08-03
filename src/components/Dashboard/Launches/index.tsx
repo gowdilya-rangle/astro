@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
 import styled, { css } from "styled-components";
 import { ILaunches, ILaunchesProps, ILaunchObject } from "../types";
+import MenuItem from '@material-ui/core/MenuItem';
 
-const Pheading = styled("p")<{ active: boolean }>`
+
+const StyledMenuItem = styled(MenuItem)<{ active: boolean }>`
 font-size: 14px;
 font-weight: 700;
 width: 100%;
@@ -11,7 +13,7 @@ margin:0px;
 padding:10px;
 
 line-height: 16.8px;
-
+color:white !important;
 text-transform: uppercase;
 text-align: center;
 background-color: ${(props) => (props.active ? "#ba1e68;" : "#0c164f;")}
@@ -56,7 +58,7 @@ export default function Launches(props: ILaunchesProps) {
                 }}
                 key={launchObject.id + index}
               >
-                <Pheading
+                <StyledMenuItem
                   active={
                     props.selectedLaunch &&
                     props.selectedLaunch.id === launchObject.id
@@ -65,7 +67,7 @@ export default function Launches(props: ILaunchesProps) {
                   }
                 >
                   {launchObject.mission_name}
-                </Pheading>
+                </StyledMenuItem>
               </div>
             );
           })

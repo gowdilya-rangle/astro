@@ -30,8 +30,10 @@ const GridElementDiv = styled.div`
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
 `;
 
+//inheriting styles of Grid Element
 const DarkGridElementDiv = styled(GridElementDiv)`
-  background-color: #0c164f;
+  background-color: transparent;
+  border: 1px solid white;
 `
 
 
@@ -78,8 +80,8 @@ export default function Dashboard() {
 
   const layoutLG = [
     { i: "a", x: 0, y: 0, w: 3, h: 12, maxH: 12, minW: 2, resizeHandles: [] },
-    { i: "b", x: 3, y: 0, w: 4, h: 9 },
-    { i: "c", x: 0, y: 1, w: 12, h: 8 },
+    { i: "b", x: 3, y: 1, w: 6, h: 9 },
+    { i: "c", x: 3, y: 0, w: 6, h: 9 },
   ];
 
   //const [gridLayout, setGridLayout] = useState(layout);

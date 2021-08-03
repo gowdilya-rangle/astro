@@ -26,19 +26,26 @@ const ContainerDiv = styled.div`
   text-align: center;
 `;
 
+const SubContainerDiv = styled.div`
+  padding: 10px;
+  text-align: center;
+
+`;
+
 const SuccessDiv = styled.div`
   display: inline;
   .MuiSvgIcon-root {
     fill: green !important;
-    height: 1.6em !important;
+   
     font-size:2rem;
   }
+  
 `;
 const FailureDiv = styled.div`
   display: inline;
   .MuiSvgIcon-root {
     fill: red !important;
-    height: 1.6em !important;
+  
     font-size:2rem;
   }
 `;
@@ -135,7 +142,8 @@ function Info(props: IInfoProps) {
               <PinkSpan>
                 <SuccessDiv>
                   {" "}
-                  Success <CheckIcon></CheckIcon>
+                  Success 
+                  <CheckIcon></CheckIcon>
                 </SuccessDiv>
               </PinkSpan>
             ) : (
@@ -147,12 +155,12 @@ function Info(props: IInfoProps) {
             <PinkSpan>{data.launch.launch_site.site_name}</PinkSpan>
           </StyledP>
           <StyledPN>Details:</StyledPN>
-          <ContainerDiv>{data.launch.details}</ContainerDiv>
+          <SubContainerDiv>{data.launch.details}</SubContainerDiv>
           <StyledPN>
             Rocket: <PinkSpan>{data.launch.rocket.rocket.name}</PinkSpan>{" "}
           </StyledPN>
 
-          <ContainerDiv>{data.launch.rocket.rocket.description}</ContainerDiv>
+          <SubContainerDiv>{data.launch.rocket.rocket.description}</SubContainerDiv>
         </div>
       ) : null}
     </ContainerDiv>
