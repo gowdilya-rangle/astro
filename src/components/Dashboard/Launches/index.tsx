@@ -16,7 +16,7 @@ line-height: 16.8px;
 color:white !important;
 text-transform: uppercase;
 text-align: center;
-background-color: ${(props) => (props.active ? "#ba1e68;" : "#0c164f;")}
+background-color: ${(props) => (props.active ? "#ba1e68;" : "transparent;")}
 &:hover{
   background-color:#5643fd;
 

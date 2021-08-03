@@ -13,14 +13,30 @@ const ResponsiveGridLayout = WidthProvider(Responsive);
 const StyledDiv = styled.div`
   height: 100vh;
   display: block;
+
 `;
 const HeaderDiv = styled.div`
-  background:#3f51b5;
+  background:transparent;
+  font-size: 22px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 650;
+  line-height: 1.43;
+  letter-spacing: 0.01071e;
+  text-align: center;
+  height: 30px;
+  margin:10px;
 `;
 
+const StyledRGL = styled(ResponsiveGridLayout)`
+  background-color: transparent;
+`
+
+
+
 const GridElementDiv = styled.div`
+border: 1px solid white;
   color: #fff;
-  background-color: #3f51b5;
+  background-color: transparent;
   font-size: 0.875rem;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
@@ -37,15 +53,7 @@ const DarkGridElementDiv = styled(GridElementDiv)`
 `
 
 
-const StyledP = styled.p`
-  font-size: 18px;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: 650;
-  line-height: 1.43;
-  letter-spacing: 0.01071e;
-  text-align: center;
-  height: 30px;
-`;
+
 
 const StyledGrid = styled.div`
   background: #ba1e68;
@@ -68,7 +76,7 @@ const StyledGrid = styled.div`
 const ScrollDiv = styled.div`
   overflow: scroll;
   height: 390px;
-  background-color: #0c164f;
+  background-color: transparent;
 `;
 
 export default function Dashboard() {
@@ -80,7 +88,7 @@ export default function Dashboard() {
 
   const layoutLG = [
     { i: "a", x: 0, y: 0, w: 3, h: 12, maxH: 12, minW: 2, resizeHandles: [] },
-    { i: "b", x: 3, y: 1, w: 6, h: 9 },
+    { i: "b", x: 3, y: 1, w: 6, h: 12 },
     { i: "c", x: 3, y: 0, w: 6, h: 9 },
   ];
 
@@ -105,9 +113,10 @@ export default function Dashboard() {
         {...gridProps}
         resizeHandles={["se", "ne", "nw", "sw"]}
       >
+
         <GridElementDiv key="a">
           <HeaderDiv>
-              <StyledP>Launch</StyledP>
+              Launch
           </HeaderDiv>
           <ScrollDiv>
             <Launches

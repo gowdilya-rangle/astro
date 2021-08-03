@@ -14,7 +14,7 @@ const VideoIframe = styled.iframe`
   top: 0;
   left: 0;
   width: calc(100% - 20px);
-  height: calc(100% );
+  height: calc(100% - 20px);
 `;
 
 interface IYoutubeProps {
