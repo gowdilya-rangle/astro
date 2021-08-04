@@ -50,7 +50,7 @@ const FailureDiv = styled.div`
   }
 `;
 
-const StyledP = styled.p`
+const TextDiv = styled.div`
   font-size: 18px;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 650;
@@ -133,10 +133,10 @@ function Info(props: IInfoProps) {
     <ContainerDiv>
       {data ? (
         <div>
-          <StyledP>
+          <TextDiv>
             Mission Name: <PinkSpan>{data.launch.mission_name}</PinkSpan>
-          </StyledP>
-          <StyledP>
+          </TextDiv>
+          <TextDiv>
             Launch Status:{" "}
             {data.launch.launch_success ? (
               <PinkSpan>
@@ -153,7 +153,7 @@ function Info(props: IInfoProps) {
             )}{" "}
             Year: <PinkSpan>{data.launch.launch_year} </PinkSpan> Site:{" "}
             <PinkSpan>{data.launch.launch_site.site_name}</PinkSpan>
-          </StyledP>
+          </TextDiv>
           <StyledPN>Details:</StyledPN>
           <SubContainerDiv>{data.launch.details}</SubContainerDiv>
           <StyledPN>

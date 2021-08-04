@@ -7,15 +7,21 @@ import Video from "./Video";
 import styled from "styled-components";
 import { ILaunchObject } from "./types";
 import Info from "./Info";
+import space from './../../images/space.png';
+
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const StyledDiv = styled.div`
   height: 100vh;
   display: block;
+  /*background-image: url(${space});*/
+
 
 `;
+
 const HeaderDiv = styled.div`
+  border: 1px solid white;
   background:transparent;
   font-size: 22px;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -27,9 +33,7 @@ const HeaderDiv = styled.div`
   margin:10px;
 `;
 
-const StyledRGL = styled(ResponsiveGridLayout)`
-  background-color: transparent;
-`
+
 
 
 
@@ -58,6 +62,7 @@ const DarkGridElementDiv = styled(GridElementDiv)`
 const StyledGrid = styled.div`
   background: #ba1e68;
   overflow: auto;
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
   .react-resizable-handle {
     position: absolute;
     width: 20px;
@@ -77,6 +82,7 @@ const ScrollDiv = styled.div`
   overflow: scroll;
   height: 390px;
   background-color: transparent;
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
 `;
 
 export default function Dashboard() {

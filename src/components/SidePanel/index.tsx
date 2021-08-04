@@ -35,6 +35,9 @@ const SidePanelDiv = styled.div`
   .MuiButtonBase-root {
     color: rgba(0, 0, 0, 0.87);
   }
+  .MuiAppBar-colorPrimary {
+    background-color: transparent !important;
+}
 `;
 
 const StyledMain = styled.main`

@@ -11,12 +11,12 @@ font-weight: 700;
 width: 100%;
 margin:0px;
 padding:10px;
-
 line-height: 16.8px;
 color:white !important;
 text-transform: uppercase;
+
 text-align: center;
-background-color: ${(props) => (props.active ? "#ba1e68;" : "transparent;")}
+background-color: ${(active) => (active ? "#ba1e68;" : "transparent;")}
 &:hover{
   background-color:#5643fd;
 
